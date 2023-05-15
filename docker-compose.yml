@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  client:
+    build: .
+    volumes:
+      - clientvol:/clientdata
+    ports:
+            - "8181:8181"
+    entrypoint: ["tail", "-f", "/dev/null"]
+
+volumes:
+  clientvol:
+
+networks: 
+  default: 
+    external: 
+      name: my-network 
+
