@@ -7,13 +7,15 @@ services:
       - clientvol:/clientdata
     ports:
             - "8181:8181"
-    entrypoint: ["tail", "-f", "/dev/null"]
 
+    networks:
+      - my-network
 volumes:
   clientvol:
 
-networks: 
-  default: 
-    external: 
-      name: my-network 
+networks:
+  my-network:
+    driver: bridge
+
+
 

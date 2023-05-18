@@ -1,10 +1,11 @@
 import os
+import time
 import hashlib
 from socket import *
 
 # set up client
-serverName = 'server_server_1'
-serverPort = 8080
+serverName = '3.91.247.83'
+serverPort = 8181
 clientSocket = socket(AF_INET, SOCK_STREAM)
 clientSocket.connect((serverName, serverPort))
 
@@ -24,6 +25,11 @@ with open('/clientdata/received_file.txt', 'r') as f:
         print('Checksums match')
     else:
         print('Checksums do not match')
+
+
+
+while True:
+    time.sleep(1) 
 
 clientSocket.close()
 
